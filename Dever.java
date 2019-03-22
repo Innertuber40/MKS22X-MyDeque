@@ -9,5 +9,9 @@ public class Dever {
 		nDegree.addFirst(-6);
 		System.out.println("-6, 0, 345, 112, -678, 6");
 		System.out.println(nDegree);
+		for (int i = 0; i < 500; i++) {
+			nDegree.addFirst(i);
+		}
+		System.out.println(nDegree);
 	}
 }

@@ -17,7 +17,7 @@ public class MyDeque<E> {
 		return size;
 	}
 	public String toString() {
-		String returns = "";
+		String returns = "{";
 		if (start < end) {
 			for (int i = start; i < end; i++) {
 				returns += deque[i] + " ";
@@ -30,38 +30,31 @@ public class MyDeque<E> {
 				returns += deque[i] + " ";
 			}
 		}
-		return returns;
+		return returns + "}";
 	}
 
 	@SuppressWarnings("unchecked")
 	public void addFirst(E element) {
-		if (start == end) {
-			E[] newArray = (E[])new Object[deque.length * 2];
-			int j = 0;
-			if (start < end) {
-				for (int i = start; i < end; i++) {
-					newArray[j] = deque[i];
-					j++;
-				}
-			} else {
-				for (int i = start; i < deque.length; i++) {
-					newArray[j] = deque[i];
-					j++;
-				}
-				for (int i = 0; i < end; i++) {
-					newArray[j] = deque[i];
-					j++;
-				}
-			}
-			deque = newArray;
-		}
 		start--;
 		if (start == -1) {
-			deque[deque.length - 1] = element;
 			start = deque.length - 1;
-		} else {
-			deque[start] = element;
 		}
+		if (start == end + 1) {
+			E[] newArray = (E[])new Object[deque.length * 2];
+			int j = 1;
+			for (int i = start; i < deque.length; i++) {
+				newArray[j] = deque[i];
+				j++;
+			}
+			for (int i = 0; i < end + 1; i++) {
+				newArray[j] = deque[i];
+				j++;
+			}
+			deque = newArray;
+			start = 0;
+			end = j + 1;
+		}
+		deque[start] = element;
 		size++;
 	}
 	@SuppressWarnings("unchecked")
