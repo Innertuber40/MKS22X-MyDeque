@@ -29,5 +29,7 @@ public class Dever {
 		if (!nDegree.toString().equals(tester)) {
 			System.out.println(false);
 		}
+		System.out.println(nDegree.removeFirst());
+		System.out.println(nDegree);
 	}
 }
