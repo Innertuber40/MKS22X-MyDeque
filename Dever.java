@@ -13,5 +13,9 @@ public class Dever {
 			nDegree.addFirst(i);
 		}
 		System.out.println(nDegree);
+		for (int i = 0; i < 500; i++) {
+			nDegree.addLast(i);
+		}
+		System.out.println(nDegree);
 	}
 }

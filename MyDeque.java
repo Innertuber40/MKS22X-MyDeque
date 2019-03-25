@@ -75,7 +75,15 @@ public class MyDeque<E> {
 	}
 	@SuppressWarnings("unchecked")
 	public void addLast(E element){
-	
+		end ++;
+		if (end == deque.length) {
+			end = 0;
+		}
+		if (size == deque.length) {
+			resize();
+		}
+		deque[end] = element;
+		size++;
 	}
 	
 	public E removeFirst(){
