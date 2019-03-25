@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class MyDeque<E> {
 	private E[] deque;
 	private int size;
@@ -85,7 +87,10 @@ public class MyDeque<E> {
 		size++;
 	}
 	
-	public E removeFirst(){
+	public E removeFirst() {
+		if (size == 0) {
+			throw new NoSuchElementException("Sorry, the deque is empty right now");
+		}
 		E returns = deque[start];
 		deque[start] = null;
 		if (start == deque.length - 1) {
@@ -96,7 +101,10 @@ public class MyDeque<E> {
 		size--;
 		return returns;
 	}
-	public E removeLast(){
+	public E removeLast() {
+		if (size == 0) {
+			throw new NoSuchElementException("Sorry, the deque is empty right now");
+		}
 		E returns = deque[end];
 		deque[end] = null;
 		if (end == 0) {
@@ -108,10 +116,16 @@ public class MyDeque<E> {
 		return returns;
 	}
 	
-	public E getFirst(){
+	public E getFirst() {
+		if (size == 0) {
+			throw new NoSuchElementException("Sorry, the deque is empty right now");
+		}
 		return deque[start];
 	}
- 	public E getLast(){
+ 	public E getLast() {
+		if (size == 0) {
+			throw new NoSuchElementException("Sorry, the deque is empty right now");
+		}
 		return deque[end];
 	}
 }

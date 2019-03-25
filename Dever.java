@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class Dever {
 	public static void main(String[] args) {
 		MyDeque<Integer> nDegree = new MyDeque<Integer>();
@@ -34,5 +36,26 @@ public class Dever {
 		System.out.println(nDegree.removeLast());
 		System.out.println(nDegree);
 		System.out.println(nDegree.getFirst() + " " + nDegree.getLast());
+		MyDeque<String> empty = new MyDeque<String>(500);
+		try {
+			empty.removeFirst();
+		} catch (NoSuchElementException e) {
+			System.out.println(e);
+		}
+		try {
+			empty.removeLast();
+		} catch (NoSuchElementException e) {
+			System.out.println(e);
+		}
+		try {
+			empty.getFirst();
+		} catch (NoSuchElementException e) {
+			System.out.println(e);
+		}
+		try {
+			empty.getLast();
+		} catch (NoSuchElementException e) {
+			System.out.println(e);
+		}
 	}
 }
