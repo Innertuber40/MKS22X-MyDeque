@@ -6,10 +6,12 @@ public class MyDeque<E> {
 
 	@SuppressWarnings("unchecked")
 	public MyDeque() {
+		start = 1;
 		deque = (E[])new Object[10];
 	}
 	@SuppressWarnings("unchecked")
 	public MyDeque(int initialCapacity) {
+		start = 1;
 		deque = (E[])new Object[initialCapacity];
 	}
 
@@ -18,6 +20,9 @@ public class MyDeque<E> {
 	}
 	public String toString() {
 		String returns = "{";
+		/*for (int i = 0; i < deque.length; i++) {
+			System.out.print(deque[i] + " ");
+		}*/
 		if (start < end) {
 			for (int i = start; i < end; i++) {
 				returns += deque[i] + " ";
@@ -30,18 +35,13 @@ public class MyDeque<E> {
 				returns += deque[i] + " ";
 			}
 		}
-		return returns + "}";
+		return returns + deque[end] + "}";
 	}
 
-	@SuppressWarnings("unchecked")
-	public void addFirst(E element) {
-		start--;
-		if (start == -1) {
-			start = deque.length - 1;
-		}
-		if (start == end + 1) {
-			E[] newArray = (E[])new Object[deque.length * 2];
-			int j = 1;
+	private void resize() {
+		E[] newArray = (E[])new Object[deque.length * 2];
+		int j = 1;
+		if (start >= end) {
 			for (int i = start; i < deque.length; i++) {
 				newArray[j] = deque[i];
 				j++;
@@ -50,9 +50,25 @@ public class MyDeque<E> {
 				newArray[j] = deque[i];
 				j++;
 			}
-			deque = newArray;
-			start = 0;
-			end = j + 1;
+		} else {
+			for (int i = start; i < end + 1; i++) {
+				newArray[j] = deque[i];
+				j++;
+			}
+		}
+		deque = newArray;
+		start = 1;
+		end = j - 1;
+	}
+
+	@SuppressWarnings("unchecked")
+	public void addFirst(E element) {
+		start--;
+		if (start == -1) {
+			start = deque.length - 1;
+		}
+		if (size == deque.length) {
+			resize();
 		}
 		deque[start] = element;
 		size++;
