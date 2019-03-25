@@ -31,5 +31,7 @@ public class Dever {
 		}
 		System.out.println(nDegree.removeFirst());
 		System.out.println(nDegree);
+		System.out.println(nDegree.removeLast());
+		System.out.println(nDegree);
 	}
 }

@@ -96,7 +96,14 @@ public class MyDeque<E> {
 		return returns;
 	}
 	public E removeLast(){
-		return null;
+		E returns = deque[end];
+		deque[end] = null;
+		if (end == 0) {
+			end = deque.length - 1;
+		} else {
+			end--;
+		}
+		return returns;
 	}
 	
 	public E getFirst(){
