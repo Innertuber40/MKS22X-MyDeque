@@ -38,6 +38,7 @@ public class MyDeque<E> {
 		return returns + deque[end] + "}";
 	}
 
+	@SuppressWarnings("unchecked")
 	private void resize() {
 		E[] newArray = (E[])new Object[deque.length * 2];
 		int j = 1;
@@ -61,7 +62,6 @@ public class MyDeque<E> {
 		end = j - 1;
 	}
 
-	@SuppressWarnings("unchecked")
 	public void addFirst(E element) {
 		start--;
 		if (start == -1) {
@@ -73,7 +73,6 @@ public class MyDeque<E> {
 		deque[start] = element;
 		size++;
 	}
-	@SuppressWarnings("unchecked")
 	public void addLast(E element){
 		end ++;
 		if (end == deque.length) {
