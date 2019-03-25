@@ -17,5 +17,17 @@ public class Dever {
 			nDegree.addLast(i);
 		}
 		System.out.println(nDegree);
+		String tester = "{";
+		for (int i = 499; i >= 0; i--) {
+			tester += i + " ";
+		}
+		tester += "-6 0 345 112 -678 6 ";
+		for (int i = 0; i < 499; i++) {
+			tester += i + " ";
+		}
+		tester += "499}";
+		if (!nDegree.toString().equals(tester)) {
+			System.out.println(false);
+		}
 	}
 }
