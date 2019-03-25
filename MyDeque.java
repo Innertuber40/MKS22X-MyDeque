@@ -107,9 +107,9 @@ public class MyDeque<E> {
 	}
 	
 	public E getFirst(){
-		return null;
+		return deque[start];
 	}
  	public E getLast(){
-		return null;
+		return deque[end];
 	}
 }
