@@ -93,6 +93,7 @@ public class MyDeque<E> {
 		} else {
 			start++;
 		}
+		size--;
 		return returns;
 	}
 	public E removeLast(){
@@ -103,6 +104,7 @@ public class MyDeque<E> {
 		} else {
 			end--;
 		}
+		size--;
 		return returns;
 	}
 	
