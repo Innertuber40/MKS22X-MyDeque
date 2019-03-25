@@ -57,5 +57,15 @@ public class Dever {
 		} catch (NoSuchElementException e) {
 			System.out.println(e);
 		}
+		try {
+			empty.addFirst(null);
+		} catch (NullPointerException e) {
+			System.out.println(e);
+		}
+		try {
+			empty.addLast(null);
+		} catch (NullPointerException e) {
+			System.out.println(e);
+		}
 	}
 }

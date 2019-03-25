@@ -65,6 +65,9 @@ public class MyDeque<E> {
 	}
 
 	public void addFirst(E element) {
+		if (element == null) {
+			throw new NullPointerException("No nulls, jerk");
+		}
 		start--;
 		if (start == -1) {
 			start = deque.length - 1;
@@ -76,6 +79,9 @@ public class MyDeque<E> {
 		size++;
 	}
 	public void addLast(E element){
+		if (element == null) {
+			throw new NullPointerException("No nulls, jerk");
+		}
 		end ++;
 		if (end == deque.length) {
 			end = 0;
