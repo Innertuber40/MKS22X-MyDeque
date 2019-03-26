@@ -67,5 +67,10 @@ public class Dever {
 		} catch (NullPointerException e) {
 			System.out.println(e);
 		}
+		System.out.println(Calculator.eval("10 6 +"));	
+		System.out.println(Calculator.eval("10 6 + 8 %"));	
+		System.out.println(Calculator.eval("10 6 + 8 % 6 5 - *"));	
+		System.out.println(Calculator.eval("10.889 -6.12 %"));	
+		System.out.println(Calculator.eval("-0.005 4 -"));	
 	}
 }
