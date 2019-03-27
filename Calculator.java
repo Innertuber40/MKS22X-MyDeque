@@ -8,32 +8,31 @@ public class Calculator {
 				i++;
 				valueStart = i + 1;
 			}
-			if (s.charAt(i) == '-') {
+			else if (s.charAt(i) == '-' && (i == s.length() - 1 || s.charAt(i + 1) == ' ')) {
 				calc.addLast(-calc.removeLast() + calc.removeLast());
 				i++;
 				valueStart = i + 1;
 			}
-			if (s.charAt(i) == '*') {
+			else if (s.charAt(i) == '*') {
 				calc.addLast(calc.removeLast() * calc.removeLast());
 				i++;
 				valueStart = i + 1;
 			}
-			if (s.charAt(i) == '/') {
+			else if (s.charAt(i) == '/') {
 				calc.addLast(1 / calc.removeLast() * calc.removeLast());	
 				i++;
 				valueStart = i + 1;
 			}
-			if (s.charAt(i) == '%') {
+			else if (s.charAt(i) == '%') {
 				Double late = calc.removeLast();
 				calc.addLast(calc.removeLast() % late);
 				i++;
 				valueStart = i + 1;
 			}
-			if (s.charAt(i) == ' ') {
+			else if (s.charAt(i) == ' ') {
 				calc.addLast(Double.parseDouble(s.substring(valueStart, i)));
 				valueStart = i + 1;
 			}
-
 		}
 		return calc.removeLast();
 	}
